@@ -23,7 +23,7 @@ CSV_URL=<url_to_another_csv> npx shai-hulud-check <path-to-package-lock.json>
 Log files
 
 The default is `shai-hulud-log.log` if the parameter `-l` or `--log` is passed in.
-A filename can be provided to with the logging parameter.
+A filename can be provided with the logging parameter.
 Or use the `LOG_FILE` environment variable.
 
 ```bash
