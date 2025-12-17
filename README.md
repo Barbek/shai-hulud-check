@@ -9,6 +9,8 @@ npm install
 npm run build
 #execute
 npx shai-hulud-check <path-to-package-lock.json>
+#or
+node bin/check.js <path-to-package-lock.json>
 ```
 
 Using another URL for the CSV
