@@ -18,8 +18,8 @@ program
     .name('shai-hulud-check')
     .description('Check package-lock.json for compromised packages')
     .argument('<file>', 'path to package-lock.json file')
-    .option('-l, --log', 'enable logging to file')
-    .action((file: string, options: { log?: boolean }) => {
+    .option('-l, --log [file]', 'enable logging to file (optional, can also set by environment variable LOG_FILE)', false)
+    .action((file: string, options: { log?: string | boolean }) => {
         if (!file.endsWith('package-lock.json')) {
             console.error('Error: File must be a package-lock.json');
             process.exit(1);
@@ -33,7 +33,8 @@ program
 
             let logStream: fs.WriteStream | null = null;
             if (options.log) {
-                logStream = fs.createWriteStream(LOG_FILE, { flags: 'a' });
+                const logFile = typeof options.log === 'string' ? options.log : LOG_FILE;
+                logStream = fs.createWriteStream(logFile, { flags: 'a' });
                 const timestamp = new Date().toISOString();
                 logStream.write(`\n=== Check run at ${timestamp} ===\n`);
             }
