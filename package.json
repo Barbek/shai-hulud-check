@@ -1,8 +1,12 @@
 {
   "name": "shai-hulud-check",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "checks package lock files for shai hulud vulnerabilities",
   "main": "index.js",
+  "files": [
+    "dist",
+    "bin"
+  ],
   "bin": {
     "shai-hulud-check": "bin/check.js"
   },
